@@ -2,16 +2,17 @@
 
 ![胎教故事 Logo](assets/logo.png)
 
-温暖的胎教朗读故事站 · 100 篇原创短章 · 支持搜索与分类
+温暖的胎教朗读故事站。
 
-- 在线：https://story.giscafer.com （GitHub Pages）
+- 在线：https://story.giscafer.com（GitHub Pages）
+- 源码：[github.com/giscafer/prenatal-story](https://github.com/giscafer/prenatal-story)
 - 关于：[giscafer.com](https://giscafer.com)
 
 ## 功能
 
-- 100 篇原创中文胎教故事（文章式排版）
-- 六大分类：自然与四季 / 动物朋友 / 家人的爱 / 勇气与善良 / 中国传说改写 / 睡前安抚
-- 首页即时搜索（标题、正文、分类）
+- 原创中文胎教故事（文章式排版）
+- 按分类浏览：自然与四季 / 动物朋友 / 家人的爱 / 勇气与善良 / 中国传说改写 / 睡前安抚
+- 首页可按标题、正文、分类筛选
 - 回到顶部火箭动画
 - 移动端友好
 

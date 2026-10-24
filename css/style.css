@@ -213,21 +213,15 @@ a:hover { text-decoration: underline; }
 .empty-state.show { display: block; }
 .empty-state strong { display: block; font-family: var(--serif); font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--ink); }
 
-.about-logo, .footer-logo {
+.about-logo {
   display: block;
-  margin: 0 auto 1rem;
-  width: 88px;
-  height: 88px;
-  border-radius: 22px;
+  margin: 0 auto 1.25rem;
+  width: 176px;
+  height: 176px;
+  border-radius: 44px;
   object-fit: cover;
-  box-shadow: 0 8px 20px rgba(61, 50, 41, 0.1);
+  box-shadow: 0 12px 28px rgba(61, 50, 41, 0.12);
   background: #f7ebe3;
-}
-.footer-logo {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  margin: 0.2rem auto 0.85rem;
 }
 .about-block {
   text-align: center;

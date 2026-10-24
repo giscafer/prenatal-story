@@ -237,21 +237,15 @@ a:hover { text-decoration: underline; }
 .empty-state.show { display: block; }
 .empty-state strong { display: block; font-family: var(--serif); font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--ink); }
 
-.about-logo, .footer-logo {
+.about-logo {
   display: block;
-  margin: 0 auto 1rem;
-  width: 88px;
-  height: 88px;
-  border-radius: 22px;
+  margin: 0 auto 1.25rem;
+  width: 176px;
+  height: 176px;
+  border-radius: 44px;
   object-fit: cover;
-  box-shadow: 0 8px 20px rgba(61, 50, 41, 0.1);
+  box-shadow: 0 12px 28px rgba(61, 50, 41, 0.12);
   background: #f7ebe3;
-}
-.footer-logo {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  margin: 0.2rem auto 0.85rem;
 }
 .about-block {
   text-align: center;
@@ -569,7 +563,8 @@ def search_blob(s: dict) -> str:
     ])
 
 
-def header(home="index.html", css="css/style.css", asset_prefix="", subtitle="给未见面的你 · 一百篇温柔短章"):
+def header(home="index.html", css="css/style.css", asset_prefix="", subtitle="给未见面的你"):
+    about_href = f"{asset_prefix}about.html"
     logo_src = f"{asset_prefix}assets/logo-header.png"
     favicon_ico = f"{asset_prefix}assets/favicon.ico"
     favicon_32 = f"{asset_prefix}assets/favicon-32.png"
@@ -580,7 +575,7 @@ def header(home="index.html", css="css/style.css", asset_prefix="", subtitle="�
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="description" content="一百篇原创胎教故事，按分类浏览，支持搜索，温暖文章排版，适合准爸妈轻声朗读。"/>
+<meta name="description" content="温暖的胎教朗读故事站，文章式排版，适合准爸妈轻声朗读。"/>
 <title>{{title}}</title>
 <link rel="stylesheet" href="{css}"/>
 <link rel="icon" href="{favicon_ico}" type="image/x-icon"/>
@@ -600,7 +595,7 @@ def header(home="index.html", css="css/style.css", asset_prefix="", subtitle="�
     </a>
     <div class="nav-links">
       <a href="{home}#stories">全部故事</a>
-      <a href="{home}#about">关于</a>
+      <a href="{about_href}">关于</a>
       <a href="https://giscafer.com" target="_blank" rel="noopener">关于我</a>
     </div>
   </div>
@@ -617,10 +612,11 @@ def footer(js_path=None, asset_prefix=""):
     return f"""
 <footer class="site-footer">
   <div class="wrap">
-    <img class="footer-logo" src="{asset_prefix}assets/logo.png" alt="胎教故事 Logo" width="56" height="56"/>
-    <p>一百篇原创胎教短章 · 分类浏览 · 支持搜索</p>
     <p>内容为原创温暖叙事，适合朗读；非医疗建议。</p>
     <p>
+      <a class="brand-link" href="https://github.com/giscafer/prenatal-story" target="_blank" rel="noopener">
+        GitHub 源码
+      </a>
       <a class="brand-link" href="https://giscafer.com" target="_blank" rel="noopener">
         ✨ 关于我 · giscafer.com
       </a>
@@ -670,13 +666,13 @@ def build():
   <a class="more" href="stories/{s['id']:02d}.html">阅读全文 →</a>
 </article>""")
 
-    index = header().format(title="胎教故事集 · 一百篇温柔短章")
+    index = header().format(title="胎教故事集")
     index += f"""
 <main>
   <section class="hero wrap">
     <div class="eyebrow">PRENATAL STORIES · 胎教朗读</div>
     <h1>在见面以前，<br/>先把温柔读给你听</h1>
-    <p>一百篇原创短故事，六大分类。像一百扇小窗：月光、小溪、家人的饭香、睡前的空白磁带。支持搜索与分类筛选，方便准爸妈按心情挑选朗读。</p>
+    <p>像一扇扇小窗：月光、小溪、家人的饭香、睡前的空白磁带。按心情挑选，轻声读给还未见面的你听。</p>
     <div class="hero-meta">
       <span>📖 {len(STORIES)} 篇原创故事</span>
       <span>🏷 六大分类</span>
@@ -702,12 +698,6 @@ def build():
       <strong>没有找到匹配的故事</strong>
       <span>换个关键词，或点「全部」看看其他分类吧。</span>
     </div>
-  </section>
-  <section class="wrap about-block" id="about">
-    <img class="about-logo" src="assets/logo.png" alt="胎教故事 Logo" width="88" height="88"/>
-    <h2 class="section-title">关于这本「故事集」</h2>
-    <p>分类包括：自然与四季、动物朋友、家人的爱、勇气与善良、中国传说改写、睡前安抚。语言短而暖，避免惊吓与沉重情节。每篇附有「适合孕期」小提示。可用顶部搜索即时过滤标题与正文。</p>
-    <p><a class="about-link" href="https://giscafer.com" target="_blank" rel="noopener">关于作者 · giscafer.com</a></p>
   </section>
 </main>
 """
@@ -747,6 +737,22 @@ def build():
 """
         page += footer(asset_prefix="../")
         (STORIES_DIR / f"{s['id']:02d}.html").write_text(page, encoding="utf-8")
+
+
+    about = header().format(title="关于 · 胎教故事集")
+    about += """
+<main>
+  <section class="wrap about-block" style="padding-top: 3rem;">
+    <img class="about-logo" src="assets/logo.png" alt="胎教故事 Logo" width="176" height="176"/>
+    <h1 class="section-title">关于这本「故事集」</h1>
+    <p>分类包括：自然与四季、动物朋友、家人的爱、勇气与善良、中国传说改写、睡前安抚。语言短而暖，避免惊吓与沉重情节。每篇附有「适合孕期」小提示。可用顶部搜索即时过滤标题与正文。</p>
+    <p><a class="about-link" href="https://giscafer.com" target="_blank" rel="noopener">关于作者 · giscafer.com</a></p>
+    <p style="margin-top:1.5rem;"><a class="about-link" href="index.html">← 返回故事目录</a></p>
+  </section>
+</main>
+"""
+    about += footer()
+    (ROOT / "about.html").write_text(about, encoding="utf-8")
 
     (ROOT / "404.html").write_text(
         header().format(title="未找到 · 胎教故事集")
