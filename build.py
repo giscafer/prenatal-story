@@ -596,7 +596,6 @@ def header(home="index.html", css="css/style.css", asset_prefix="", subtitle="�
     <div class="nav-links">
       <a href="{home}#stories">全部故事</a>
       <a href="{about_href}">关于</a>
-      <a href="https://giscafer.com" target="_blank" rel="noopener">关于我</a>
     </div>
   </div>
 </header>
