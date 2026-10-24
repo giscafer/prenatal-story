@@ -88,29 +88,14 @@ a:hover { text-decoration: underline; }
 .brand-text strong { display: block; font-size: 1.05rem; letter-spacing: 0.04em; }
 .brand-text span { font-size: 0.78rem; color: var(--muted); }
 .nav-links { display: flex; gap: 1rem; font-size: 0.92rem; color: var(--ink-soft); flex-wrap: wrap; }
-.hero { padding: 3.2rem 0 1.8rem; text-align: center; }
-.hero .eyebrow {
-  display: inline-block;
-  padding: 0.25rem 0.8rem;
-  border-radius: 999px;
-  background: #f3e0d6;
-  color: var(--accent);
-  font-size: 0.85rem;
-  margin-bottom: 1rem;
-}
+.hero { padding: 3.6rem 0 2.2rem; text-align: center; }
 .hero h1 {
   font-family: var(--serif);
   font-weight: 600;
   font-size: clamp(1.9rem, 4vw, 2.7rem);
   line-height: 1.35;
-  margin: 0 0 1rem;
+  margin: 0 0 1.6rem;
   letter-spacing: 0.06em;
-}
-.hero p {
-  max-width: 36em;
-  margin: 0 auto 1.5rem;
-  color: var(--ink-soft);
-  font-size: 1.02rem;
 }
 .hero-meta {
   display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
@@ -418,7 +403,7 @@ a:hover { text-decoration: underline; }
 @media (max-width: 600px) {
   body { font-size: 16px; }
   .nav-links a:not(:first-child) { display: none; }
-  .hero { padding-top: 2.2rem; }
+  .hero { padding-top: 2.6rem; padding-bottom: 1.6rem; }
   .article-body { font-size: 1.05rem; line-height: 1.95; }
 }
 """
@@ -669,9 +654,7 @@ def build():
     index += f"""
 <main>
   <section class="hero wrap">
-    <div class="eyebrow">PRENATAL STORIES · 胎教朗读</div>
     <h1>在见面以前，<br/>先把温柔读给你听</h1>
-    <p>像一扇扇小窗：月光、小溪、家人的饭香、睡前的空白磁带。按心情挑选，轻声读给还未见面的你听。</p>
     <div class="hero-meta">
       <span>📖 {len(STORIES)} 篇原创故事</span>
       <span>🏷 六大分类</span>
