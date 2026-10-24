@@ -236,6 +236,40 @@ a:hover { text-decoration: underline; }
 }
 .empty-state.show { display: block; }
 .empty-state strong { display: block; font-family: var(--serif); font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--ink); }
+
+.about-logo, .footer-logo {
+  display: block;
+  margin: 0 auto 1rem;
+  width: 88px;
+  height: 88px;
+  border-radius: 22px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(61, 50, 41, 0.1);
+  background: #f7ebe3;
+}
+.footer-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  margin: 0.2rem auto 0.85rem;
+}
+.about-block {
+  text-align: center;
+  padding-bottom: 3rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.about-block p {
+  color: var(--ink-soft);
+  text-align: left;
+}
+.about-block .about-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.8rem;
+  color: var(--accent);
+}
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 2rem 0 3rem;
@@ -583,6 +617,7 @@ def footer(js_path=None, asset_prefix=""):
     return f"""
 <footer class="site-footer">
   <div class="wrap">
+    <img class="footer-logo" src="{asset_prefix}assets/logo.png" alt="胎教故事 Logo" width="56" height="56"/>
     <p>一百篇原创胎教短章 · 分类浏览 · 支持搜索</p>
     <p>内容为原创温暖叙事，适合朗读；非医疗建议。</p>
     <p>
@@ -668,9 +703,11 @@ def build():
       <span>换个关键词，或点「全部」看看其他分类吧。</span>
     </div>
   </section>
-  <section class="wrap" id="about" style="padding-bottom:3rem;max-width:720px;margin:0 auto;">
+  <section class="wrap about-block" id="about">
+    <img class="about-logo" src="assets/logo.png" alt="胎教故事 Logo" width="88" height="88"/>
     <h2 class="section-title">关于这本「故事集」</h2>
-    <p style="color:var(--ink-soft)">分类包括：自然与四季、动物朋友、家人的爱、勇气与善良、中国传说改写、睡前安抚。语言短而暖，避免惊吓与沉重情节。每篇附有「适合孕期」小提示。可用顶部搜索即时过滤标题与正文。</p>
+    <p>分类包括：自然与四季、动物朋友、家人的爱、勇气与善良、中国传说改写、睡前安抚。语言短而暖，避免惊吓与沉重情节。每篇附有「适合孕期」小提示。可用顶部搜索即时过滤标题与正文。</p>
+    <p><a class="about-link" href="https://giscafer.com" target="_blank" rel="noopener">关于作者 · giscafer.com</a></p>
   </section>
 </main>
 """
